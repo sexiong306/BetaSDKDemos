@@ -18,7 +18,8 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         timer = $(R.id.timer);
-        mMyCountDownTimer = new MyCountDownTimer(5000,1000);
+        long delay = 6000;
+        mMyCountDownTimer = new MyCountDownTimer(delay,1000);
         mMyCountDownTimer.start();
 
         mHandler = new Handler();
@@ -31,7 +32,7 @@ public class SplashActivity extends BaseActivity {
                 SplashActivity.this.finish();
             }
         };
-        mHandler.postDelayed(runnable,5000);
+        mHandler.postDelayed(runnable,delay);
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
