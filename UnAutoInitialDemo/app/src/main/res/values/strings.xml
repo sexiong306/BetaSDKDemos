@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">SplashScreenDemo</string>
+    <string name="app_name">UnAutoInitialDemo</string>
     <string name="beta">BuglyBetaDemo</string>
     <string name="check_upgrade">检查更新</string>
     <string name="new_info">升级新特性：</string>
