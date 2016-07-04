@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -21,7 +22,7 @@ public class SplashActivity extends BaseActivity {
         mMyCountDownTimer.start();
 
         mHandler = new Handler();
-        mHandler.postDelayed(new Runnable() {
+        final Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent();
@@ -29,7 +30,15 @@ public class SplashActivity extends BaseActivity {
                 startActivity(i);
                 SplashActivity.this.finish();
             }
-        },5000);
+        };
+        mHandler.postDelayed(runnable,5000);
+        timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHandler.removeCallbacks(runnable);
+                mHandler.post(runnable);
+            }
+        });
     }
 
     class MyCountDownTimer extends CountDownTimer{
